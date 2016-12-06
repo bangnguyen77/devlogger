@@ -26,6 +26,10 @@ var FeathersService = (function () {
         return this._http.post('http://localhost:3030/logs', JSON.stringify(log), { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    FeathersService.prototype.deleteLog = function (id) {
+        return this._http.delete('http://localhost:3030/logs/' + id)
+            .map(function (res) { return res.json(); });
+    };
     FeathersService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
