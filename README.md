@@ -1,6 +1,6 @@
 # devlopper
 
-> Simple logger app
+> Simple logger app allows users to create and delete logs.
 
 ## About
 
