@@ -1,4 +1,4 @@
-# devlopper
+# devlogger
 
 > Simple logger app allows users to create and delete logs.
 
@@ -14,7 +14,7 @@ Getting up and running is as easy as 1, 2, 3.
 2. Install your dependencies
     
     ```
-    cd path/to/devlopper; npm install
+    cd path/to/devlogger; npm install
     ```
 
 3. Start your app
