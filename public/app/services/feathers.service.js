@@ -9,22 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
-var app_component_1 = require('./app.component');
-var logs_component_1 = require('./components/logs/logs.component');
-var AppModule = (function () {
-    function AppModule() {
+require('rxjs/add/operator/map');
+var FeathersService = (function () {
+    function FeathersService(_http) {
+        this._http = _http;
+        console.log('Feathers Service Initialized');
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, logs_component_1.LogsComponent],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    FeathersService.prototype.getLogs = function () {
+        return this._http.get('http://localhost:3030/logs')
+            .map(function (res) { return res.json(); });
+    };
+    FeathersService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], FeathersService);
+    return FeathersService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.FeathersService = FeathersService;
+//# sourceMappingURL=feathers.service.js.map
