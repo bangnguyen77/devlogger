@@ -12,4 +12,11 @@ export class FeathersService {
         return this._http.get('http://localhost:3030/logs')
                 .map(res => res.json());
     }
+
+    addLog(log) {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.post('http://localhost:3030/logs', JSON.stringify(log), {headers:headers})
+                .map(res => res.json());
+    }
 }
